@@ -5,6 +5,7 @@
   "author": "UpSoftware <info@upsoftware.tech>",
   "license": "MIT",
   "type": "module",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"No test specified\" && exit 0"
   },
