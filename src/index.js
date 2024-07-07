@@ -8,7 +8,7 @@
 function extendConf (conf, api) {
 	conf.boot.push('~@upsoftware/quasar-app-extension-admin/src/boot/components.js');
 	if (!api.hasVite) {
-		conf.build.transpileDependencies.push(/@upsoftware[\\/]quasar-app-extension-admin/);
+		conf.build.transpileDependencies.push(/\\@upsoftware[\\/]quasar-app-extension-admin[\\/]src/);
 	} else {
 		conf.build.vitePlugins = conf.build.vitePlugins || [];
 		conf.build.vitePlugins.push({
