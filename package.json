@@ -1,0 +1,22 @@
+{
+  "name": "@upsoftware/quasar-app-extension-admin",
+  "version": "0.0.1",
+  "description": "Admin Quasar Extension",
+  "author": "UpSoftware <info@upsoftware.tech>",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"No test specified\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": "",
+  "homepage": "",
+  "engines": {
+    "node": ">= 12.2.0",
+    "npm": ">= 5.6.0",
+    "yarn": ">= 1.6.0"
+  }
+}
