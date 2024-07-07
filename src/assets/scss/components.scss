@@ -1,3 +1,148 @@
-BODY {
-	background: #CCC;
+.q-item {
+	padding-top:4px;
+	padding-bottom:4px;
+	min-height: 44px;
+	color:rgb(99, 115, 129);
+	border-radius: 0.375rem;
+
+	&:hover {
+		background: rgba(145, 158, 171, 0.08);
+	}
+}
+.q-item__label--header {
+	color:rgb(145, 158, 171);
+}
+.q-item__section {
+	font-weight: 500;
+}
+body.desktop .q-hoverable:hover > .q-focus-helper {
+	background: none;
+}
+.q-item__section--avatar {
+	min-width:24px;
+}
+.has-error .q-checkbox__inner--falsy .q-checkbox__bg {
+	border-color:$negative;
+}
+.q-checkbox__bg,
+.q-field--outlined .q-field__control:before {
+	border-color:#cbd5e1;
+}
+.q-field--labeled .q-field__native, .q-field--labeled .q-field__prefix, .q-field--labeled .q-field__suffix {
+	padding-top:16px;
+	padding-bottom:16px;
+	margin-left: 6px;
+	padding-right: 4px;
+	line-height: 20px;
+}
+.q-field--float .q-field__label {
+	transform: translateY(-115%) translateX(2px) scale(0.8);
+}
+.input-phone .q-field--float .q-field__label {
+	transform: translateY(-115%) translateX(-78px) scale(0.8);
+}
+.q-select__dialog .q-field__label {
+	background: none;
+	padding:0 3px;
+}
+.q-field__control {
+	height:54px;
+}
+.q-select__dialog .q-field--float .q-field__label {
+	transform: translateY(-75%) translateX(2px) scale(0.8);
+}
+.q-field__label {
+	padding:0 6px;
+	background: white;
+	z-index:1;
+	font-size: 14px;
+	top:16px;
+}
+.q-field--outlined .q-field__control {
+	border-radius: 0.375rem;
+}
+.q-filed--highlighted {
+
+}
+.q-field--auto-height.q-field--labeled .q-field__control-container {
+	padding-top:18px;
+}
+
+.q-card {
+	box-shadow: rgba(145, 158, 171, 0.2) 0px 0px 2px 0px, rgba(145, 158, 171, 0.12) 0px 12px 24px -4px;
+	border:1px solid rgba(145, 158, 171, 0.08);
+}
+.q-btn-sm.q-btn {
+	padding: 0.5rem 1rem;
+	@apply tw-text-sm;
+}
+.q-textarea.q-field--labeled .q-field__control-container {
+	padding-top: 16px;
+}
+.body--dark .q-checkbox__bg {
+	border-color:rgb(43,50,67);
+}
+.q-checkbox__bg {
+	border-color:rgb(229, 231, 235);
+}
+.q-checkbox:hover .q-checkbox__bg {
+	border-color:rgb(0,0,0);
+}
+.body--dark .q-checkbox:hover .q-checkbox__bg {
+	border-color:rgb(255,255,255);
+}
+.q-checkbox:hover .q-checkbox__inner--truthy .q-checkbox__bg,
+.q-checkbox__inner--truthy .q-checkbox__bg, .q-checkbox__inner--indet .q-checkbox__bg {
+	border-color:$primary;
+}
+.q-radio__inner--falsy .q-radio__bg path {
+	fill:rgb(229, 231, 235)
+}
+
+.radio:hover .q-radio__inner--falsy .q-radio__bg path {
+	fill:rgb(0,0,0) !important;
+}
+
+.body--dark .radio:hover .q-radio__inner--falsy .q-radio__bg path {
+	fill:rgb(255,255,255) !important;
+}
+
+.otp-input-container {
+	justify-content:center;
+}
+.otp-input {
+	width: 54px;
+	height: 54px;
+	padding: 5px;
+	margin: 0 8px;
+	font-size: 20px;
+	border-radius: 0.375rem;
+	border: 1px solid #cbd5e1;
+	text-align: center;
+	font-weight: 400;
+}
+.otp-input.otp-input-error:not(:focus) {
+	border-color:$negative !important;
+	color:$negative !important;
+}
+/* Background colour of an input field with value */
+.otp-input.is-complete {
+	font-weight: 600;
+	/*border-color:$primary;
+	color:$primary;*/
+}
+.otp-input::-webkit-inner-spin-button,
+.otp-input::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+input::placeholder {
+	font-size: 15px;
+	text-align: center;
+	font-weight: 600;
+}
+.q-expansion-item .q-item {
+	padding:0;
+	line-height: auto;
+	margin:0 12px;
 }
