@@ -4,6 +4,8 @@
  *
  * Docs: https://quasar.dev/app-extensions/development-guide/index-api
  */
+import { useForm } from "./composables/useForm.js";
+import { useAuth } from "./composables/useAuth.js";
 
 function extendConf (conf, api) {
 	conf.boot.push('~@upsoftware/quasar-app-extension-admin/src/boot/components.js');
@@ -28,4 +30,4 @@ export default function (api) {
 	api.extendQuasarConf(extendConf)
 }
 
-export * from "./composables";
+export { useForm, useAuth };
