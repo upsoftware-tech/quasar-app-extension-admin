@@ -8,7 +8,17 @@
 function extendConf (conf, api) {
 	conf.boot.push('~@upsoftware/quasar-app-extension-admin/src/boot/components.js');
 	if (!api.hasVite) {
-		conf.build.transpileDependencies.push(/\\@upsoftware[\\/]quasar-app-extension-admin[\\/]src/);
+		conf.build.transpileDependencies.push(/@upsoftware[\\/]quasar-app-extension-admin/);
+	} else {
+		conf.build.vitePlugins = conf.build.vitePlugins || [];
+		conf.build.vitePlugins.push({
+			name: 'quasar-admin-extension',
+			config(config) {
+				config.resolve = config.resolve || {};
+				config.resolve.alias = config.resolve.alias || {};
+				config.resolve.alias['@upsoftware/admin'] = api.resolve.src('');
+			}
+		});
 	}
 	conf.css.push('~@upsoftware/quasar-app-extension-admin/src/assets/scss/components.scss');
 }
@@ -17,3 +27,5 @@ export default function (api) {
 	api.compatibleWith('quasar', '^2.0.0')
 	api.extendQuasarConf(extendConf)
 }
+
+export * from "./composables";
