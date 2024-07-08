@@ -1,6 +1,6 @@
 import { reactive } from 'vue';
 import { callApi } from "./../boot/api.js";
-import cloneDeep from 'lodash/cloneDeep';
+import cloneDeep from 'lodash/cloneDeep.js';
 
 export function useForm(params, options = {}) {
 
