@@ -1,5 +1,5 @@
 {
-  "name": "@upsoftware/admin",
+  "name": "@upsoftware/quasar-app-extension-admin",
   "version": "0.0.1",
   "description": "Admin Quasar Extension",
   "author": "UpSoftware <info@upsoftware.tech>",
