@@ -2,7 +2,7 @@ import { reactive } from 'vue';
 import { callApi } from "./../boot/api.js";
 import cloneDeep from 'lodash/cloneDeep';
 
-export function useForm() {
+export function useForm(params, options = {}) {
 
 	let transform = (data) => data
 
