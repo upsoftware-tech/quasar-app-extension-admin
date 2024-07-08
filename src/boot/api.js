@@ -1,4 +1,4 @@
-import { api } from 'boot/axios';
+import { api } from './axios.js';
 
 async function callApi(url, method, data, errors) {
 
