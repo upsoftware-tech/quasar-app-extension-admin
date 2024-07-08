@@ -8,9 +8,9 @@ import { useForm } from "./composables/useForm.js";
 import { useAuth } from "./composables/useAuth.js";
 
 function extendConf (conf, api) {
-	conf.boot.push('~@upsoftware/quasar-app-extension-admin/src/boot/components.js');
+	conf.boot.push('~@upsoftware/admin/src/boot/components.js');
 	if (!api.hasVite) {
-		conf.build.transpileDependencies.push(/\\@upsoftware[\\/]quasar-app-extension-admin[\\/]src/);
+		conf.build.transpileDependencies.push(/\\@upsoftware[\\/]admin[\\/]src/);
 	} else {
 		conf.build.vitePlugins = conf.build.vitePlugins || [];
 		conf.build.vitePlugins.push({
@@ -22,7 +22,7 @@ function extendConf (conf, api) {
 			}
 		});
 	}
-	conf.css.push('~@upsoftware/quasar-app-extension-admin/src/assets/scss/components.scss');
+	conf.css.push('~@upsoftware/admin/src/assets/scss/components.scss');
 
 	conf.upsoftware = {
 		api: {
