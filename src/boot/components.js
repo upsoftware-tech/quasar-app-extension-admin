@@ -1,5 +1,6 @@
 import UpsoftBox from './../components/Box/index.vue';
 import UpsoftForm from './../components/Form/index.vue';
+import UpsoftFormButton from './../components/Form/Button.vue';
 import UpsoftFormText from './../components/Form/Field/Text.vue';
 import UpsoftFromPassword from './../components/Form/Field/Password.vue';
 
@@ -11,4 +12,5 @@ export default ({ app }) => {
 	app.component('UpsoftFormText', UpsoftFormText);
 	app.component('UpsoftFormPassword', UpsoftFromPassword);
 	app.component('UpsoftAdminLayout', UpsoftAdminLayout);
+	app.component('UpsoftFormButton', UpsoftFormButton);
 }

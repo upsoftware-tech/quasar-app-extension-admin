@@ -23,6 +23,21 @@ function extendConf (conf, api) {
 		});
 	}
 	conf.css.push('~@upsoftware/quasar-app-extension-admin/src/assets/scss/components.scss');
+
+	conf.upsoftware = {
+		api: {
+			url: 'http://127.0.0.1:8000/',
+			endpoint: {
+				login: 'auth/login',
+				register: 'auth/register'
+			}
+		},
+		otp: {
+			login: true,
+			register: true,
+			reset: true
+		}
+	}
 }
 
 export default function (api) {
