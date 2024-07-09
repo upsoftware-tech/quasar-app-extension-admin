@@ -10,11 +10,10 @@ import {useAuth} from "./composables/useAuth.js";
 function extendConf (conf, api) {
 	conf.boot.push('~@upsoftware/quasar-app-extension-admin/src/boot/config.js');
 
-	// Dodaj opcje konfiguracyjne do obiektu conf
 	conf.framework = conf.framework || {};
 	conf.framework.config = conf.framework.config || {};
 
-	const userConfig = conf.framework.config['@upsoftware/admin'] || {
+	conf.framework.config.upsoftware = conf.framework.config.upsoftware || {
 		api: {
 			url: 'http://127.0.0.1:8000/',
 			endpoint: {
@@ -29,10 +28,9 @@ function extendConf (conf, api) {
 		}
 	};
 
-	conf.framework.config['@upsoftware/admin'] = userConfig;
-
 	// Logowanie, aby upewnić się, że konfiguracja jest ustawiona
-	console.log('conf.framework.config["@upsoftware/admin"]:', conf.framework.config['@upsoftware/admin']);
+	console.log('conf.framework.config.upsoftware:', conf.framework.config.upsoftware);
+
 
 	conf.boot.push('~@upsoftware/quasar-app-extension-admin/src/boot/components.js');
 	if (!api.hasVite) {
