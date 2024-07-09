@@ -22,5 +22,11 @@
   },
   "dependencies": {
     "lodash": "^4.17.21"
+  },
+  "quasar": {
+    "appExtension": {
+      "id": "upsoftware",
+      "index": "src/index.js"
+    }
   }
 }

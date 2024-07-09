@@ -9,7 +9,7 @@ import {useAuth} from "./composables/useAuth.js";
 
 function extendConf (conf, api) {
 	conf.boot.push('~@upsoftware/quasar-app-extension-admin/src/boot/config.js');
-	
+
 	conf.framework = conf.framework || {};
 	conf.framework.config = conf.framework.config || {};
 
