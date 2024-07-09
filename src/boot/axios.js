@@ -7,9 +7,13 @@ import axios from 'axios'
 // good idea to move this instance creation inside of the
 // "export default () => {}" function below (which runs individually
 // for each client)
-const api = axios.create({ baseURL: 'http://127.0.0.1:8000/v1/' })
 
 export default boot(({ app }) => {
+
+	const apiUrl = app.config.globalProperties.$q.config['@upsoftware/admin'].api.url;
+
+	const api = axios.create({ baseURL: apiUrl });
+
 	app.config.globalProperties.$axios = axios
 	app.config.globalProperties.$api = api
 });
