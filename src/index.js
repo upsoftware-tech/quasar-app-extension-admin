@@ -7,6 +7,9 @@
 import { useForm } from "./composables/useForm.js";
 import { useAuth } from "./composables/useAuth.js";
 
+import AdminLayout from "./layouts/AdminLayout.vue";
+import AuthLoginView from "./views/auth/login.vue";
+
 function deepMerge(target, source) {
 	for (const key in source) {
 		if (source[key] instanceof Object && key in target) {
@@ -32,6 +35,9 @@ function extendConf (conf, api) {
 			login: true,
 			register: true,
 			reset: true
+		},
+		login: {
+			rememberMe: false
 		}
 	};
 
@@ -66,4 +72,4 @@ export default function (api) {
 	api.extendQuasarConf(extendConf)
 }
 
-export { useForm, useAuth };
+export { useForm, useAuth, AdminLayout, AuthLoginView };
