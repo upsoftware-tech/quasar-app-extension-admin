@@ -6,7 +6,7 @@
 
 function installCoreModule(api) {
 	api.extendJsonFile("quasar.extensions.json", {
-		"upsoftware": {},
+		"@upsoftware/admin": {},
 	});
 }
 
