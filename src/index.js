@@ -8,7 +8,6 @@ import {useForm} from "./composables/useForm.js";
 import {useAuth} from "./composables/useAuth.js";
 
 function extendConf (conf, api) {
-	conf.boot.push('~@upsoftware/quasar-app-extension-admin/src/boot/config.js');
 
 	// Dodaj opcje konfiguracyjne do obiektu conf
 	conf.framework = conf.framework || {};
@@ -34,6 +33,7 @@ function extendConf (conf, api) {
 	// Logowanie, aby upewnić się, że konfiguracja jest ustawiona
 	console.log('conf.framework.config["@upsoftware/admin"]:', conf.framework.config['@upsoftware/admin']);
 
+	conf.boot.push('~@upsoftware/quasar-app-extension-admin/src/boot/config.js');
 	conf.boot.push('~@upsoftware/quasar-app-extension-admin/src/boot/components.js');
 	if (!api.hasVite) {
 		conf.build.transpileDependencies.push(/\\@upsoftware[\\/]quasar-app-extension-admin[\\/]src/);
