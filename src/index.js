@@ -4,16 +4,23 @@
  *
  * Docs: https://quasar.dev/app-extensions/development-guide/index-api
  */
-import {useForm} from "./composables/useForm.js";
-import {useAuth} from "./composables/useAuth.js";
+import { useForm } from "./composables/useForm.js";
+import { useAuth } from "./composables/useAuth.js";
+
+function deepMerge(target, source) {
+	for (const key in source) {
+		if (source[key] instanceof Object && key in target) {
+			Object.assign(source[key], deepMerge(target[key], source[key]));
+		}
+	}
+	Object.assign(target || {}, source);
+	return target;
+}
 
 function extendConf (conf, api) {
+	conf.boot.push('~@upsoftware/quasar-app-extension-admin/src/boot/axios.js');
 
-	// Dodaj opcje konfiguracyjne do obiektu conf
-	conf.framework = conf.framework || {};
-	conf.framework.config = conf.framework.config || {};
-
-	const userConfig = conf.framework.config['@upsoftware/admin'] || {
+	const defaultConfig = {
 		api: {
 			url: 'http://127.0.0.1:8000/api/v1',
 			endpoint: {
@@ -28,13 +35,15 @@ function extendConf (conf, api) {
 		}
 	};
 
-	conf.framework.config['@upsoftware/admin'] = userConfig;
+	conf.framework = conf.framework || {};
+	conf.framework.config = conf.framework.config || {};
 
-	// Logowanie, aby upewnić się, że konfiguracja jest ustawiona
-	console.log('conf.framework.config["@upsoftware/admin"]:', conf.framework.config['@upsoftware/admin']);
+	const userConfig = conf.framework.config['@upsoftware/admin'] || {};
+	conf.framework.config['@upsoftware/admin'] = deepMerge(defaultConfig, userConfig);
 
 	conf.boot.push('~@upsoftware/quasar-app-extension-admin/src/boot/config.js');
 	conf.boot.push('~@upsoftware/quasar-app-extension-admin/src/boot/components.js');
+
 	if (!api.hasVite) {
 		conf.build.transpileDependencies.push(/\\@upsoftware[\\/]quasar-app-extension-admin[\\/]src/);
 		conf.build.transpileDependencies.push(/lodash/);
