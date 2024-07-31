@@ -52,6 +52,7 @@ function extendConf (conf, api) {
 
 	if (!api.hasVite) {
 		conf.build.transpileDependencies.push(/\\@upsoftware[\\/]quasar-app-extension-admin[\\/]src/);
+		conf.build.transpileDependencies.push(/\\@upsoftware[\\/]quasar-app-extension-admin/);
 		conf.build.transpileDependencies.push(/lodash/);
 	} else {
 		conf.build.vitePlugins = conf.build.vitePlugins || [];
@@ -64,6 +65,12 @@ function extendConf (conf, api) {
 			}
 		});
 	}
+
+	conf.build.alias = {
+		...conf.build.alias,
+		'@upsoftware/admin': api.resolve.src('')
+	};
+
 	conf.css.push('~@upsoftware/quasar-app-extension-admin/src/assets/scss/components.scss');
 }
 
@@ -72,4 +79,9 @@ export default function (api) {
 	api.extendQuasarConf(extendConf)
 }
 
-export { useForm, useAuth, AdminLayout, AuthLoginView };
+export function install (Vue) {
+	Vue.component('AdminLayout', AdminLayout);
+	Vue.component('AuthLoginView', AuthLoginView);
+}
+
+export { useForm, useAuth, AuthLoginView, AdminLayout };
